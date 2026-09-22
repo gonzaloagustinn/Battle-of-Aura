@@ -31,5 +31,10 @@ export class UnidadDeCombate {
     setArma(arma: Arma): void {
     this.arma = arma
     }
+
+    dispararA(objetivo: UnidadDeCombate): void {
+    const dano = this.arma?.disparar() ?? 0
+    objetivo.recibirDano(dano)
+    }
     
 }

@@ -33,4 +33,17 @@ describe('UnidadDeCombate', () => {
     expect(unidad.getArma()).toBe(arma)
     })
 
+    it('puede dispararle a otra unidad', () => {
+    const municion = new Municion(3)
+    const arma = new Arma(1, municion)
+
+    const atacante = new UnidadDeCombate(2)
+    const objetivo = new UnidadDeCombate(2)
+
+    atacante.setArma(arma)
+    atacante.dispararA(objetivo)
+
+    expect(objetivo.getVida()).toBe(1)
+    })
+
 })
