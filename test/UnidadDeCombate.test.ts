@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { UnidadDeCombate } from '../src/UnidadDeCombate'
+import { Arma } from '../src/Arma'
+import { Municion } from '../src/Municion'
+
 
 describe('UnidadDeCombate', () => {
     it('permite recibir daño y consultar si sigue viva', () => {
@@ -19,4 +22,15 @@ describe('UnidadDeCombate', () => {
         expect(unidad.getVida()).toBe(0)
         expect(unidad.estaVivo()).toBe(false)
     })
+
+    it('puede tener un arma', () => {
+    const municion = new Municion(3)
+    const arma = new Arma(1, municion)
+    const unidad = new UnidadDeCombate(2)
+
+    unidad.setArma(arma)
+
+    expect(unidad.getArma()).toBe(arma)
+    })
+
 })
