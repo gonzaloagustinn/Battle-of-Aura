@@ -12,4 +12,11 @@ export class Escudo {
     setPorcentaje(porcentaje: number): void {
         this.porcentaje = porcentaje
     }
+
+
+    reducirDaño(dano: number): number {
+    return dano * (1 - this.porcentaje / 100)
+    }
+
+
 }

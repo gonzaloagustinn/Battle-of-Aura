@@ -9,4 +9,12 @@ describe('Escudo', () => {
         expect(escudo.getPorcentaje()).toBe(50)
     })
 
+    it('reduce el daño según su porcentaje', () => {
+    const escudo = new Escudo(50)
+
+    const dano = escudo.reducirDaño(1)
+
+    expect(dano).toBe(0.5)
+    })
+    
 })
