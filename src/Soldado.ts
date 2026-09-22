@@ -1,16 +1,7 @@
-export class Soldado {
+import { UnidadDeCombate } from "./UnidadDeCombate";
 
-    private vida: number = 1
-
-    getVida(): number{ 
-        return this.vida
+export class Soldado extends UnidadDeCombate {
+    constructor() {
+        super(1)
     }
-
-    setVida(vida:number): void {
-        this.vida=vida
-    }
-
-
-
-
 }
