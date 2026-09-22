@@ -5,6 +5,7 @@ import { Municion } from '../src/Municion'
 import { Tanque } from '../src/Tanque'
 import {Soldado } from '../src/Soldado'
 import { Buque } from '../src/Buque'
+import { Escudo } from '../src/Escudo'
 
 
 describe('UnidadDeCombate', () => {
@@ -61,4 +62,17 @@ describe('UnidadDeCombate', () => {
 
     expect(buque.getVida()).toBe(2)
     })
+
+
+    it('recibe daño reducido por su escudo', () => {
+    const escudo = new Escudo(50)
+    const unidad = new UnidadDeCombate(2)
+
+    unidad.setEscudo(escudo)
+    unidad.recibirDano(1)
+
+    expect(unidad.getVida()).toBe(1.5)
+    })
+
+
 })

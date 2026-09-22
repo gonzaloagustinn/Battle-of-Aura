@@ -1,8 +1,10 @@
 import { Arma } from '../src/Arma'
+import { Escudo } from '../src/Escudo'
 
 export class UnidadDeCombate {
     private vida: number
     private arma?: Arma
+    escudo: Escudo | undefined
 
     constructor(vida: number) {
         this.vida = vida
@@ -17,8 +19,11 @@ export class UnidadDeCombate {
         this.vida = vida
     }
 
-    recibirDano(dano: number): void{
-        this.vida = this.vida - dano
+    recibirDano(dano: number): void {
+    const danoReducido = this.escudo?.reducirDaño(dano) ?? dano
+    
+    this.vida = this.vida - danoReducido
+    
     }
     
     estaVivo(): boolean {
@@ -35,6 +40,14 @@ export class UnidadDeCombate {
     dispararA(objetivo: UnidadDeCombate): void {
     const dano = this.arma?.disparar() ?? 0
     objetivo.recibirDano(dano)
+    }
+
+    getEscudo(): Escudo | undefined {
+    return this.escudo
+    }
+
+    setEscudo(escudo: Escudo): void {
+    this.escudo = escudo
     }
     
 }
