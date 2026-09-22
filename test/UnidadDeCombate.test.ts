@@ -2,6 +2,9 @@ import { describe, expect, it } from 'vitest'
 import { UnidadDeCombate } from '../src/UnidadDeCombate'
 import { Arma } from '../src/Arma'
 import { Municion } from '../src/Municion'
+import { Tanque } from '../src/Tanque'
+import {Soldado } from '../src/Soldado'
+import { Buque } from '../src/Buque'
 
 
 describe('UnidadDeCombate', () => {
@@ -46,4 +49,16 @@ describe('UnidadDeCombate', () => {
     expect(objetivo.getVida()).toBe(1)
     })
 
+    it('puede dispararle a otra unidad', () => {
+    const municion = new Municion(1)
+    const arma = new Arma(1, municion)
+
+    const tanque = new Tanque()
+    const buque = new Buque()
+
+    tanque.setArma(arma)
+    tanque.dispararA(buque)
+
+    expect(buque.getVida()).toBe(2)
+    })
 })
