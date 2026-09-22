@@ -28,5 +28,14 @@ export class Arma{
     this.municion = municion
     }
 
+    disparar(): number {
+       const cantidad = this.municion.getCantidad()
+
+    this.municion.consumir()
+
+    return this.dano * Math.min(cantidad, 1)
+
+    }
+
 
 }

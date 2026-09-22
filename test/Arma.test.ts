@@ -12,4 +12,24 @@ describe('Arma', () => {
         expect(arma.getMunicion()).toBe(municion)
     })
 
+    it('dispara y consume munición', () => {
+    const municion = new Municion(3)
+    const arma = new Arma(1, municion)
+
+    const dano = arma.disparar()
+
+    expect(dano).toBe(1)
+    expect(arma.getMunicion().getCantidad()).toBe(2)
+
+    })
+
+    it('no hace daño cuando no tiene munición', () => {
+    const municion = new Municion(0)
+    const arma = new Arma(1, municion)
+
+    const dano = arma.disparar()
+
+    expect(dano).toBe(0)
+})
+
 })

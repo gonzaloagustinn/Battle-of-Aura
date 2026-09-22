@@ -2,7 +2,7 @@ export class Municion {
     private cantidad: number
 
     constructor(cantidad: number) {
-        this.cantidad = cantidad 
+        this.cantidad = cantidad
 
     }
 
@@ -16,7 +16,7 @@ export class Municion {
     }
 
     consumir(): void{
-        this.cantidad = this.cantidad -1
+        this.cantidad = Math.max(this.cantidad -1, 0)
     }
 
 }
